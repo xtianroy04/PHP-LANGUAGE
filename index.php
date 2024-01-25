@@ -11,7 +11,7 @@ if (!$connect) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-
+//practice
 
 // ________----------------------------------CREATE DATA____________---------------------------------//
                                         // Create Data (1)
