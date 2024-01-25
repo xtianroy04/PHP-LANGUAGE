@@ -40,19 +40,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // 1. Query first
 // 2. before getting the data
 // (1)
-$query = "SELECT id, first_name, last_name, date_registered FROM students";
+$query = "SELECT id, first_name, last_name, date_registered, address, phone, email FROM students";
 $result = mysqli_query($connect, $query);
 
 // (2)
 // Logic for displaying data
+echo "<table border='1'>";
+echo "<tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date Registered</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Email</th>
+     </tr>";
+
 if (mysqli_num_rows($result) > 0) {
-  while($data = mysqli_fetch_assoc($result)) {
-    echo "id: " . $data["id"]. " - Name: " . $data["first_name"]. " " . $data["last_name"]. " " . $data["date_registered"]. "<br>";
-  }
+    while ($data = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $data["id"] . "</td>";
+        echo "<td>" . $data["first_name"] . " " . $data["last_name"] . "</td>";
+        echo "<td>" . $data["date_registered"] . "</td>";
+        echo "<td>" . $data["address"] . "</td>";
+        echo "<td>" . $data["phone"] . "</td>";
+        echo "<td>" . $data["email"] . "</td>";
+        echo "</tr>";
+    }
 } else {
-  echo "0 results";
+    echo "<tr><td colspan='6'>0 results</td></tr>";
 }
 
+echo "</table>";
 
 // Importanti para ma close
 mysqli_close($connect);
