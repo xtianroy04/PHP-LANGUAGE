@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "exam_mabilin";
+$database = "php";
 
 // Sa pag connect
 $connect = new mysqli($servername, $username, $password, $database);
