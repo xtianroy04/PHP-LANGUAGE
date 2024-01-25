@@ -21,9 +21,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $date_registered = $_POST["date_registered"];
+    $address = $_POST["address"];
+    $phone = $_POST["phone"];
+    $email = $_POST["email"];
   
     // Insert data into the 'students' table
-    $insert_query = "INSERT INTO students (first_name, last_name, date_registered) VALUES ('$first_name', '$last_name', '$date_registered')";
+    $insert_query = "INSERT INTO students 
+    (
+        first_name, 
+        last_name, 
+        date_registered, 
+        address,
+        phone,
+        email
+    ) VALUES 
+    (
+        '$first_name', 
+        '$last_name', 
+        '$date_registered', 
+        '$address', 
+        '$phone',
+        '$email'
+    )";
+
     if (mysqli_query($connect, $insert_query)) {
     // message kung nahuman na og create ang data
       echo "Record added successfully";
@@ -45,7 +65,7 @@ $result = mysqli_query($connect, $query);
 
 // (2)
 // Logic for displaying data
-echo "<h1>Display Data</h1>";
+echo "<h1></h1>";
 echo "<table border='1'>";
 echo "<tr>
         <th>ID</th>
@@ -91,9 +111,13 @@ mysqli_close($connect);
   First Name: <input type="text" name="first_name" required><br>
   Last Name: <input type="text" name="last_name" required><br>
   Date Registered: <input type="date" name="date_registered" required><br>
+  address: <input type="text" name="address" required><br>
+  phone: <input type="text" name="phone" required><br>
+  email: <input type="text" name="email" required><br>
 
   <input type="submit" value="Submit">
 </form>
 
 </body>
 </html>
+
