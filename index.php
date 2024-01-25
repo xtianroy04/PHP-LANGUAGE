@@ -45,6 +45,7 @@ $result = mysqli_query($connect, $query);
 
 // (2)
 // Logic for displaying data
+echo "<h1>Display Data</h1>";
 echo "<table border='1'>";
 echo "<tr>
         <th>ID</th>
