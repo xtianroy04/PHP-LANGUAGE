@@ -1,19 +1,22 @@
 <?php
-
-// Importing the configuration file by putting require or include
+// Importing the all file by putting require or include
 require('configuration.php');
 include('create.php');
+include('search.php');
 
- 
-  // ________----------------------------------READ DATA____________---------------------------------//
-                                        // get Data from database (2)
 
-  // QUERY TO DISPLAY THE DATA
-$query = "SELECT id, first_name, last_name, date_registered, address, phone, email FROM students";
 $result = mysqli_query($connect, $query);
 
 // Logic for displaying data
 echo "<h1>DISPLAY DATA</h1>";
+
+// Search form
+echo "<form method='get' action=''>
+        <label for='search'>Search:</label>
+        <input type='text' name='search' id='search' value='$search'>
+        <input type='submit' value='Search'>
+      </form>";
+
 echo "<table border='1'>";
 echo "<tr>
         <th hidden>ID</th>
@@ -25,29 +28,29 @@ echo "<tr>
         <th>Action</th>
      </tr>";
 
-  if (mysqli_num_rows($result) > 0) {
-      while ($data = mysqli_fetch_assoc($result)) {
-          echo "<tr>";
-            echo "<td hidden>" . $data["id"] . "</td>";
-            echo "<td>" . $data["first_name"] . " " . $data["last_name"] . "</td>";
-            echo "<td>" . $data["date_registered"] . "</td>";
-            echo "<td>" . $data["address"] . "</td>";
-            echo "<td>" . $data["phone"] . "</td>";
-            echo "<td>" . $data["email"] . "</td>";
-            echo "<td>
-                    <form action='delete.php' method='post'>
-                        <input type='hidden' name='delete_id' value='". $data["id"]."'>
-                        <button type='submit' style='margin-top: 15px; background-color: red;' value='Delete'>Delete</button>
-                    </form> 
-                    <button style='margin-top: 15px; background-color: blue;' onclick=\"window.location.href='/php/update.php?id=" . $data['id'] . "'\">Update</button>
-                  </td>";   
-            echo "</tr>";
-      }
-  } else {
-      echo "<tr><td colspan='6'>0 results</td></tr>";
-  }
+if (mysqli_num_rows($result) > 0) {
+    while ($data = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td hidden>" . $data["id"] . "</td>";
+        echo "<td>" . $data["first_name"] . " " . $data["last_name"] . "</td>";
+        echo "<td>" . $data["date_registered"] . "</td>";
+        echo "<td>" . $data["address"] . "</td>";
+        echo "<td>" . $data["phone"] . "</td>";
+        echo "<td>" . $data["email"] . "</td>";
+        echo "<td>
+                <form action='delete.php' method='post'>
+                    <input type='hidden' name='delete_id' value='". $data["id"]."'>
+                    <button type='submit' style='margin-top: 15px; background-color: red;' value='Delete'>Delete</button>
+                </form> 
+                <button style='margin-top: 15px; background-color: blue;' onclick=\"window.location.href='/php/update.php?id=" . $data['id'] . "'\">Update</button>
+              </td>";   
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='6'>0 results</td></tr>";
+}
 
-  echo "</table>";
+echo "</table>";
 
 // Importanti para ma close
 mysqli_close($connect);
