@@ -78,6 +78,7 @@ mysqli_close($connect);
     Email: <input type="email" name="edit_email" value="<?= $email ?>" required><br>
 
     <input type="submit" value="Update">
+    <button style='margin-top: 15px; background-color: blue;' onclick="window.location.href='/php/index.php?'">Back</button>
 </form>
 
 </body>
