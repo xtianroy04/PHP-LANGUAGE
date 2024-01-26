@@ -11,11 +11,51 @@ $result = mysqli_query($connect, $query);
 echo "<h1>DISPLAY DATA</h1>";
 
 // Search form
-echo "<form method='get' action=''>
-        <label for='search'>Search:</label>
-        <input type='text' name='search' id='search' value='$search'>
-        <input type='submit' value='Search'>
+echo "<form method='get' action='' class='search-form'>
+
+        <label for='search' class='search-label'></label>
+
+        <div class='search-container'>
+          <input type='text' name='search' id='search' value='$search' class='search-input'>
+          <button type='submit' class='search-button'>
+            <img src='path/to/search-icon.png' alt='Search'>
+          </button>
+        </div>
       </form>";
+
+// sa search button center japun hahaha
+
+echo "
+<style>
+
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-input {
+    padding: 10px;
+    border: 2px solid #3498db;
+  }
+
+  .search-button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 9px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .search-button img {
+    width: 80px; 
+    height: 20px; 
+
+  }
+</style>
+";
+
 
 
 echo "<table border='1'>";
@@ -62,21 +102,65 @@ mysqli_close($connect);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Php language</title>
+  <title>PHP Language</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
+}
+  </style>
 </head>
 <body>
-<button style='margin-top: 15px;' onclick="window.location.href='/php/index.php'">Reload</button>
-<h2>Insert Data</h2>
-<form method="post" action="create.php">
-  First Name: <input type="text" name="first_name" required><br>
-  Last Name: <input type="text" name="last_name" required><br>
-  address: <input type="text" name="address" required><br>
-  phone: <input type="text" name="phone" required><br>
-  email: <input type="email" name="email" required><br>
 
-  <input type="submit" value="Submit">
-</form>
+  <main class="table">
+    <section class="table_header">
+  <h1>Insert Data</h1>
+  </section>
+  <button onclick="window.location.href='/php/index.php'">Reload</button>
+  <section class="table_body">
+    <table>
+      <thead>
+      <tr>
+    <th>First Name:</th>
+    <th>Last Name:</th>
+    <th>Address:</th>
+    <th>Phone:</th>
+    <th>Email:</th>
+  </tr>
+  <tr>
+    <form method="post" action="create.php">
+      <td><input type="text" name="first_name" required></td>
+      <td><input type="text" name="last_name" required></td>
+      <td><input type="text" name="address" required></td>
+      <td><input type="text" name="phone" required></td>
+      <td><input type="email" name="email" required></td>
+      <td><input type="submit" value="Submit"></td>
+    </form>
+  </tr>
+        <!-- <tr>
 
+  <form method="post" action="create.php">
+    First Name: <input type="text" name="first_name" required><br>
+    Last Name: <input type="text" name="last_name" required><br>
+    Address: <input type="text" name="address" required><br>
+    Phone: <input type="text" name="phone" required><br>
+    Email: <input type="email" name="email" required><br>
+    <button onclick="window.location.href='/php/index.php'">Reload</button>
+
+    <input type="submit" value="Submit">
+    </tr> -->
+    </thead>
+    </table>
+  </form>
+
+
+  </section>
+</main> 
 </body>
 </html>
+
 
