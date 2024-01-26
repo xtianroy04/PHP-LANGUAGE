@@ -9,7 +9,7 @@ $date_registered = "";
 $address = "";
 $phone = "";
 $email = "";
-
+// COde for update
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'] ?? '';
     $first_name = $_POST['edit_first_name'] ?? '';
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     mysqli_stmt_close($update_query);
 }
-
+// COde for showing the data to edit it
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
