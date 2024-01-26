@@ -42,9 +42,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "Error adding record: " . mysqli_error($connect);
     }
   }
-
-  // QUERY TO DISPLAY THE DATA
-$query = "SELECT id, first_name, last_name, date_registered, address, phone, email FROM students";
-$result = mysqli_query($connect, $query);
-
 ?>
