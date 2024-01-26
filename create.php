@@ -9,7 +9,7 @@ require('configuration.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
-    $date_registered = $_POST["date_registered"];
+    $date_registered = date("Y-m-d H:i:s");
     $address = $_POST["address"];
     $phone = $_POST["phone"];
     $email = $_POST["email"];

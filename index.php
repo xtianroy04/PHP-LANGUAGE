@@ -70,7 +70,6 @@ mysqli_close($connect);
 <form method="post" action="create.php">
   First Name: <input type="text" name="first_name" required><br>
   Last Name: <input type="text" name="last_name" required><br>
-  Date Registered: <input type="date" name="date_registered" required><br>
   address: <input type="text" name="address" required><br>
   phone: <input type="text" name="phone" required><br>
   email: <input type="email" name="email" required><br>
