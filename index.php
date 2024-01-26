@@ -17,6 +17,7 @@ echo "<form method='get' action=''>
         <input type='submit' value='Search'>
       </form>";
 
+
 echo "<table border='1'>";
 echo "<tr>
         <th hidden>ID</th>
@@ -64,7 +65,7 @@ mysqli_close($connect);
   <title>Php language</title>
 </head>
 <body>
-
+<button style='margin-top: 15px;' onclick="window.location.href='/php/index.php'">Reload</button>
 <h2>Insert Data</h2>
 <form method="post" action="create.php">
   First Name: <input type="text" name="first_name" required><br>
